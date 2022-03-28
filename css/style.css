@@ -1,0 +1,29 @@
+*{box-sizing: border-box;}
+
+/* layout */
+#wrap{width: 100%; overflow: hidden;}
+#header{width: 100%; background: #fff;}
+#content{width: 100%; background: #fff; overflow: hidden;}
+.container{max-width: 980px; margin: 0 auto; position: relative; overflow: hidden;}
+a{color: inherit;}
+
+
+
+/* header */
+.gnb{width: 100%; height: 62px; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; color: #17191d;}
+
+.gnb-menu{display: flex; align-items: center;}
+.gnb-menu .icon{width: 18px; height: 18px; background: #17191d url(../img/btn/set_gnb.png) no-repeat 0 0; cursor: pointer; margin-right: 10px;}
+.gnb-menu a{display: block; font: 18px 'NEXON Lv2 Gothic Bold';}
+.gnb-menu:hover .icon{background-color: #07f; transition: .2s;}
+.gnb-menu:hover a{color: #07f; transition: .2s;}
+
+.nx-logo a{display: block; width: 100%; height: 100%; padding-left: 134px;}
+.nx-logo a img{vertical-align: bottom;}
+
+.gnb-right{display: flex; align-items: center;}
+.gnb-right .icon{width: 22px; height: 22px; background: #191919 url(../img/btn/set_gnb_icon.png) no-repeat 0 0;}
+.gnb-right .gnb-join{font-size: 16px; margin: 0 10px;}
+.gnb-right .gnb-join:hover a{color: #07f; transition: .2s;}
+.gnb-right .gnb-login{padding: 7px 18px; border: 2px solid #17191d; border-radius: 20px; font: 16px 'NEXON Lv2 Gothic Bold';}
+.gnb-right .gnb-login:hover{color: #fff; background: #07f; border-color: #07f; transition: .2s;}
