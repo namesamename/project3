@@ -2,7 +2,7 @@
 
 /* layout */
 #wrap{width: 100%; overflow: hidden;}
-#header{width: 100%; background: #fff;}
+#header{width: 100%; background: #fff; position: relative; z-index: 999;}
 #content{width: 100%; background: #fff; overflow: hidden;}
 .container{max-width: 980px; height: inherit; margin: 0 auto; position: relative; overflow: hidden;}
 a{color: inherit;}
@@ -54,7 +54,7 @@ nav .mob-wrap .fas{font-size: 25px; line-height: 33px; color: #a92111;}
 nav .mob-wrap .mob-menu a{width: 33px; height: 33px;}
 nav .mob-wrap .mob-menu .fas{padding: 0 4px;}
 
-nav .mob-wrap .mob-logo{width: 15%; height: 100%;}
+nav .mob-wrap .mob-logo{width: 150px; height: 100%;}
 nav .mob-wrap .mob-logo h2{height: 100%;}
 nav .mob-wrap .mob-logo a{width: 100%; height: 71%;}
 nav .mob-wrap .mob-logo a img{width: 100%; height: 100%; margin-top: 8px;}
@@ -64,10 +64,27 @@ nav .mob-wrap .mob-home .fas{padding: 0 1px;}
 
 
 
+/* banner */
+.banner-t{width: 100%; display: flex;}
 
+.start{width: 250px; margin-top: 48px;}
 
+.start-btn{height: 170px;}
 
+.login{height: 190px; background: url(../img/login/login_bg.gif) no-repeat;}
+.login .login-tab{display: flex; width: 100%; height: 35px;}
+.login .login-tab li{width: 84px;}
+.login .login-tab li.on{background-position: 0 0;}
+.login .login-tab .cp{background: url(../img/login/login_cp.gif) no-repeat 0 -35px;}
+.login .login-tab .nx{background: url(../img/login/login_nx.gif) no-repeat 0 -35px;}
+.login .login-tab .dp{background: url(../img/login/login_dp.gif) no-repeat 0 -35px;}
+.login .login-btn{height: 105px; background: url(../img/login/login_line.gif) no-repeat center bottom; text-align: center; padding: 32.5px 0;}
+.login .etc-btn{height: 50px;}
+.login .etc-btn .btn-wrap{width: 210px; height: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;}
+.login .etc-btn .find a{display: inline-block;}
 
+.slide-wrap{width: 730px; height: 408px; padding-left: 10px; overflow: hidden; position: relative;}
+.slide-wrap .slides{width: 100%; height: 100%; background: url(../img/main_slide/slide_bg.png) center bottom;}
 
 
 
@@ -82,4 +99,8 @@ nav .mob-wrap .mob-home .fas{padding: 0 1px;}
     nav{height: 50px; background: url(../img/nav/nav_flip_bg.png) no-repeat center center;}
     nav .pc-wrap{display: none;}
     /* nav .mob-wrap{display: block;} */
+}
+
+@media screen and (max-width: 980px) {
+    .container{padding: 0 15px}
 }
