@@ -1,0 +1,379 @@
+*{box-sizing: border-box;}
+
+/* 변수 */
+$white: #fff;
+$black: #17191d;
+$blue: #07f;
+$red: #a92111;
+$fs18: 18px;
+$fs16: 16px;
+$fs11: 11px;
+$wh100: 100%;
+
+/* mixin */
+@mixin flex($justcon:true, $align:true){
+    display: flex;
+    @if $justcon{
+        justify-content: space-between;
+    }
+    @if $align{
+        align-items: center;
+    }
+}
+@mixin norep{
+    background-repeat: no-repeat;
+}
+@mixin overh{
+    overflow: hidden;
+}
+
+
+
+
+
+#wrap{width: $wh100; @include overh();}
+#content{width: $wh100; background: $white; @include overh();}
+.container{max-width: 980px; height: inherit; margin: 0 auto; position: relative; @include overh();}
+a{color: inherit;}
+img{vertical-align: bottom;}
+.bold{font-family: 'NEXON Lv2 Gothic Bold';}
+
+
+
+/* header */
+header{
+    width: $wh100;
+    background: $white;
+    position: relative;
+    z-index: 999;
+
+    /* gnb */
+    .gnb{
+        width: $wh100;
+        height: 62px;
+        padding: 0 24px;
+        @include flex(true, true);
+        color: $black;
+        .gnb-menu{
+            @include flex(false, true);
+            .icon{
+                width: 18px;
+                height: 18px;
+                background: $black url(../img/btn/set_gnb.png) 0 0;
+                @include norep();
+                cursor: pointer;
+                margin-right: 10px;
+            }
+            a{
+                display: block;
+                font-size: $fs18;
+            }
+            &:hover .icon{
+                background-color: $blue;
+                transition: .2s;
+            }
+            &:hover a{
+                color: $blue;
+                transition: .2s;
+            }
+        }
+        .nx-logo{
+            a{
+                display: block;
+                width: $wh100;
+                height: 100%;
+                padding-left: 184px; 
+            }
+        }
+        .gnb-right{
+            @include flex(false, true);
+            .icon{
+                width: 22px;
+                height: 22px;
+                background: #191919 url(../img/btn/set_gnb_icon.png) 0 0;
+                @include norep();
+            }
+            .gnb-join{
+                font-size: $fs16;
+                margin: 0 10px;
+                &:hover a{
+                    color: $blue;
+                    transition: .2s;
+                }
+            }
+            .gnb-login{
+                padding: 7px 18px;
+                border: 2px solid $black;
+                border-radius: 20px;
+                font-size: $fs16;
+                &:hover{
+                    color: $white;
+                    background: $blue;
+                    border-color: $blue;
+                    transition: .2s;
+                }
+            }
+        }
+    }
+
+    /* nav */
+    nav{
+        width: $wh100;
+        height: 61px;
+        position: relative;
+        background: url(../img/nav/nav_bg.png) center center;
+        @include norep();
+        .pc-wrap{
+            width: $wh100;
+            height: $wh100;
+            @include flex(false, false);
+            justify-content: space-around;
+            li{
+                width: calc((79%-211px)/9);
+                height: $wh100;
+                position: relative;
+                a{
+                    display: block;
+                    width: 82%;
+                    height: $wh100;
+                    background: url(../img/nav/nav_menu.png);
+                    @include norep();
+                }
+                $bpx:(
+                    1: 0,
+                    2: -70px,
+                    3: -422px,
+                    5: -204px,
+                    6: -274px,
+                    7: -345px
+                );
+                $ml:(
+                    3: 10px,
+                    6: 10px,
+                    7: 10px
+                );
+                @each $i, $px in $bpx{
+                    &:nth-child(#{$i})>a{background-position-x: $px;}
+                }
+                @each $i, $px in $ml{
+                    &:nth-child(#{$i})>a{margin-left: $px;}
+                }
+            }
+            .logo{
+                width: 211px;
+                h2{height: $wh100;}
+                a{
+                    display: block;
+                    width: $wh100;
+                    height: $wh100;
+                    padding-top: 7px;
+                    background: none;
+                }
+            }
+        }
+
+        /* mobile header */
+        .mob-wrap{
+            width: $wh100;
+            height: $wh100;
+            @include flex(true, true);
+            a{display: block;}
+            .fas{
+                font-size: 25px;
+                line-height: 33px;
+                color: $red;
+            }
+            .mob-menu{
+                a{
+                    width: 33px;
+                    height: 33px;
+                }
+                .fas{padding: 0 4px;}
+            }
+            .mob-logo{
+                width: 150px;
+                height: $wh100;
+                h2{height: $wh100;}
+                a{
+                    width: $wh100;
+                    height: 71%;
+                    img{
+                        width: $wh100;
+                        height: $wh100;
+                        margin-top: 8px;
+                    }
+                }
+            }
+            .mob-home{
+                a{
+                    width: 33px;
+                    height: 33px;
+                }
+                .fas{padding: 0 1px;}
+            }
+        }
+    }
+}
+
+
+
+/* main */
+main{
+    /* banner */
+    #banner{
+        background: url(../img/bg.jpg);
+        @include norep();
+        .banner-t{
+            width: $wh100;
+            @include flex(false, false);
+            .start{
+                width: 250px;
+                margin-top: 48px;
+                .start-btn{height: 170px;}
+                .login{
+                    height: 190px;
+                    background: url(../img/login/login_bg.gif);
+                    @include norep();
+                    .login-tab{
+                        @include flex(false, false);
+                        width: $wh100;
+                        height: 35px;
+                        @each $l in cp,nx,dp{
+                            li.#{$l}{background: url(../img/login/login_#{$l}.gif) 0 -35px; @include norep();}
+                        }
+                        li{
+                            width: 84px;
+                            &.on{background-position: 0 0;}
+                        }
+                    }
+                    .login-btn{
+                        height: 105px;
+                        background: url(../img/login/login_line.gif) center bottom;
+                        @include norep();
+                        text-align: center;
+                        padding: 32.5px 0;
+                    }
+                    .etc-btn{
+                        height: 50px;
+                        .btn-wrap{
+                            width: 210px;
+                            height: $wh100;
+                            margin: 0 auto;
+                            @include flex(true, true);
+                        }
+                        .find{
+                            a{display: inline-block;}
+                        }
+                    }
+                }
+            }
+            .slide-wrap{
+                width: 730px;
+                height: 408px;
+                padding-left: 10px;
+                @include overh();
+                position: relative;
+                .slides{
+                    width: $wh100;
+                    height: $wh100;
+                    background: url(../img/main_slide/slide_bg.png) center bottom;
+                }
+            }
+        }
+        .banner-b{
+            ul{
+                @include overh();
+                margin-top: 20px;
+                li{
+                    display: none;
+                    &.on{display: block;}
+                }
+            }
+        }
+    }
+
+    /* content */
+    #content{
+        .container{
+            padding: 70px 20px;
+            border: 1px solid #e2e2e2;
+            .content-wrap{
+                @include flex(false, false);
+                .con-left{
+                    flex: 1;
+                }
+                .con-center{
+                    flex: 2;
+                }
+                .con-right{
+                    flex: 1;
+                }
+            }
+        }
+    }
+}
+
+
+
+/* footer */
+.footer-wrap{
+    width: $wh100;
+    margin-top: 30px;
+    @include overh();
+    padding: 10px;
+    .link{
+        font-size: 13px;
+        color: #666;
+        letter-spacing: .5px;
+        @include overh();
+        @include flex(false, false);
+        li{
+            @include overh();
+            &:not(:last-child){padding-right: 15px;}
+        }
+        a{
+            position: relative;
+            &::after{content: ""; display: inline-block; width: 1px; height: 12px; background: #d1d1d1; position: absolute; top: 1px; right: -8px;}
+        }
+    }
+    .info{
+        font-size: $fs11;
+        color: #888;
+        margin-top: 10px;
+        span{
+            display: inline-block;
+            margin-right: 10px;
+            a{text-decoration: underline;}
+        }
+    }
+    .cen{
+        font-size: $fs11;
+        color: #888;
+        margin-top: 10px;
+    }
+    .logo{
+        margin-top: 20px;
+        a{
+            display: inline-block;
+            margin-right: 15px;
+        }
+    }
+}
+
+
+
+/* media screen */
+@media screen and (max-width: 1100px) {
+    .gnb{display: none;}
+    nav{
+        height: 50px;
+        background: url(../img/nav/nav_flip_bg.png) center center;
+        @include norep();
+        .pc-wrap{display: none;}
+        // .mob-wrap{display: block;}
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .container{padding: 0 15px}
+}
