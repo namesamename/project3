@@ -385,8 +385,8 @@ main #banner .banner-t .start .login .etc-btn .btn-wrap {
           align-items: center;
 }
 
-main #banner .banner-t .start .login .etc-btn .find a {
-  display: inline-block;
+main #banner .banner-t .start .login .etc-btn .find a:nth-child(2) {
+  margin-left: -3px;
 }
 
 main #banner .banner-t .slide-wrap {
@@ -417,7 +417,7 @@ main #banner .banner-b ul li.on {
 }
 
 main #content .container {
-  padding: 70px 20px;
+  padding: 30px 20px 100px;
   border: 1px solid #e2e2e2;
 }
 
@@ -433,10 +433,102 @@ main #content .container .content-wrap .con-left {
           flex: 1;
 }
 
+main #content .container .content-wrap .con-left .min-slide {
+  margin: 10px 0;
+  border: 1px solid #e2e0e0;
+}
+
+main #content .container .content-wrap .con-left .min-slide .min-slide-btn {
+  background: #656565;
+  height: 25px;
+}
+
+main #content .container .content-wrap .con-left .big-btns a:nth-child(2) {
+  margin-left: -3px;
+}
+
+main #content .container .content-wrap .con-left .btns {
+  margin-top: 10px;
+  padding: 7px 0 7px 53.5%;
+  background: url(../img/left02/sns_bg.gif);
+  background-repeat: no-repeat;
+}
+
+main #content .container .content-wrap .con-left .btns a:nth-child(2) {
+  display: inline-block;
+  margin: 0 17px;
+}
+
+main #content .container .content-wrap .con-left .btn-bnr {
+  margin-top: 10px;
+}
+
+main #content .container .content-wrap .con-left .fog {
+  margin-top: 15px;
+}
+
+main #content .container .content-wrap .con-left .cs-btn {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 main #content .container .content-wrap .con-center {
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
+  padding: 0 3%;
+}
+
+main #content .container .content-wrap .con-center .mgz .title {
+  padding-top: 3%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+main #content .container .content-wrap .con-center .mgz .title h3 {
+  font-size: 15px;
+}
+
+main #content .container .content-wrap .con-center .mgz .title span {
+  font-size: 11px;
+}
+
+main #content .container .content-wrap .con-center .mgz ul {
+  padding: 2% 0 4%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[2];
+  -ms-grid-columns: (1fr)[2];
+      grid-template: repeat(2, 1fr)/repeat(2, 1fr);
+  grid-gap: 5%;
+}
+
+main #content .container .content-wrap .con-center .mgz ul li {
+  width: 92.5%;
+  margin: 0 auto;
+  border: 1px solid #d2d2d2;
+}
+
+main #content .container .content-wrap .con-center .mgz ul li .text-box {
+  padding: 4% 7%;
+}
+
+main #content .container .content-wrap .con-center .char {
+  padding: 3% 0;
+}
+
+main #content .container .content-wrap .con-center .char .title h3 {
+  font-size: 15px;
 }
 
 main #content .container .content-wrap .con-right {
@@ -518,15 +610,15 @@ main #content .container .content-wrap .con-right {
 
 /* media screen */
 @media screen and (max-width: 1100px) {
-  .gnb {
+  header .gnb {
     display: none;
   }
-  nav {
+  header nav {
     height: 50px;
     background: url(../img/nav/nav_flip_bg.png) center center;
     background-repeat: no-repeat;
   }
-  nav .pc-wrap {
+  header nav .pc-wrap {
     display: none;
   }
 }
