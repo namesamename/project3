@@ -475,14 +475,15 @@ main #content .container .content-wrap .con-left .cs-btn {
 }
 
 main #content .container .content-wrap .con-center {
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
+  -webkit-box-flex: 1.9;
+      -ms-flex: 1.9;
+          flex: 1.9;
   padding: 0 3%;
 }
 
 main #content .container .content-wrap .con-center .mgz .title {
-  padding-top: 3%;
+  border-bottom: 1px solid #e2e2e2;
+  padding-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -492,11 +493,10 @@ main #content .container .content-wrap .con-center .mgz .title {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 1px solid #e2e2e2;
 }
 
 main #content .container .content-wrap .con-center .mgz .title h3 {
-  font-size: 15px;
+  font-size: 14.5px;
 }
 
 main #content .container .content-wrap .con-center .mgz .title span {
@@ -504,7 +504,7 @@ main #content .container .content-wrap .con-center .mgz .title span {
 }
 
 main #content .container .content-wrap .con-center .mgz ul {
-  padding: 2% 0 4%;
+  padding: 3% 0 4%;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: (1fr)[2];
@@ -514,27 +514,192 @@ main #content .container .content-wrap .con-center .mgz ul {
 }
 
 main #content .container .content-wrap .con-center .mgz ul li {
-  width: 92.5%;
+  width: 191px;
   margin: 0 auto;
   border: 1px solid #d2d2d2;
 }
 
 main #content .container .content-wrap .con-center .mgz ul li .text-box {
-  padding: 4% 7%;
+  padding: 5% 7%;
 }
 
 main #content .container .content-wrap .con-center .char {
   padding: 3% 0;
+  margin-top: 4%;
+}
+
+main #content .container .content-wrap .con-center .char .title {
+  border-bottom: 1px solid #e2e2e2;
 }
 
 main #content .container .content-wrap .con-center .char .title h3 {
-  font-size: 15px;
+  font-size: 14.5px;
+}
+
+main #content .container .content-wrap .con-center .char .char-box {
+  width: 400px;
+  height: 224px;
+  margin: 2% auto 0;
+  background: url(../img/cha_info/cha_bg.gif) center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+main #content .container .content-wrap .con-center .char .char-box .all-btn {
+  position: absolute;
+  top: 62.5%;
+  left: 1px;
+}
+
+main #content .container .content-wrap .con-center .char .char-box .char-wrap {
+  position: relative;
+  overflow: hidden;
+  width: 350px;
+  height: 50px;
+  margin: 10px auto;
+}
+
+main #content .container .content-wrap .con-center .char .char-box .char-wrap .char-thum-b {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main #content .container .content-wrap .con-center .char .char-box .char-wrap .char-thum-b img {
+  cursor: pointer;
+}
+
+main #content .container .content-wrap .con-center .char .char-box .char-wrap .focus {
+  width: 50px;
+  height: 41px;
+  background: url(../img/cha_on/cha_hover.gif) center center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+main #content .container .content-wrap .con-center .char .char-box .char-wrap .focus > img {
+  position: absolute;
+  z-index: 999;
+}
+
+main #content .container .content-wrap .con-center .char .char-box .char-wrap .focus .char-thum-c {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+main #content .container .content-wrap .con-center .char .char-box .char-wrap .focus img {
+  cursor: pointer;
+}
+
+main #content .container .content-wrap .con-center .char .char-box .char-arrow img {
+  cursor: pointer;
+}
+
+main #content .container .content-wrap .con-center .char .char-box .char-arrow .prev-arrow, main #content .container .content-wrap .con-center .char .char-box .char-arrow .next-arrow {
+  position: absolute;
+  bottom: 24px;
+}
+
+main #content .container .content-wrap .con-center .char .char-box .char-arrow .prev-arrow {
+  left: 9px;
+}
+
+main #content .container .content-wrap .con-center .char .char-box .char-arrow .next-arrow {
+  right: 9px;
 }
 
 main #content .container .content-wrap .con-right {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -webkit-box-flex: 1.1;
+      -ms-flex: 1.1;
+          flex: 1.1;
+}
+
+main #content .container .content-wrap .con-right .news .title {
+  border-bottom: 1px solid #e2e2e2;
+  padding-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main #content .container .content-wrap .con-right .news .title h3 {
+  font-size: 14.5px;
+}
+
+main #content .container .content-wrap .con-right .news .title span {
+  font-size: 11px;
+}
+
+main #content .container .content-wrap .con-right .news .news-list {
+  margin-top: 5%;
+  letter-spacing: 0.5px;
+  line-height: 1.7;
+}
+
+main #content .container .content-wrap .con-right .news .update {
+  margin-top: 4%;
+  padding: 4%;
+  background: #f9f9f9;
+  border: 1px solid #d2d2d2;
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+main #content .container .content-wrap .con-right .news .update span {
+  display: block;
+}
+
+main #content .container .content-wrap .con-right .today {
+  margin-top: 10%;
+}
+
+main #content .container .content-wrap .con-right .today .title {
+  border-bottom: 1px solid #e2e2e2;
+  padding-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main #content .container .content-wrap .con-right .today .title h3 {
+  font-size: 14.5px;
+}
+
+main #content .container .content-wrap .con-right .today .title span {
+  font-size: 11px;
+}
+
+main #content .container .content-wrap .con-right .today .today-list {
+  letter-spacing: 0.5px;
+  line-height: 1.7;
+}
+
+main #content .container .content-wrap .con-right .today .today-list .attk {
+  background: url(../img/today/ico_today.gif);
+}
+
+main #content .container .content-wrap .con-right .today .today-list li {
+  background-repeat: no-repeat;
 }
 
 /* footer */

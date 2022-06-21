@@ -26,6 +26,24 @@ $wh100: 100%;
 @mixin overh{
     overflow: hidden;
 }
+@mixin title($pd:true, $flex:true){
+    border-bottom: 1px solid #e2e2e2;
+    h3{font-size: 14.5px;}
+    @if $pd{
+        padding-top: 10px;
+    }
+    @if $flex{
+        @include flex(true, true);
+        span{font-size: $fs11;}
+    }
+}
+@mixin list($mg:true){
+    letter-spacing: 0.5px;
+    line-height: 1.7;
+    @if $mg{
+        margin-top: 5%;
+    }
+}
 
 
 
@@ -330,40 +348,126 @@ main{
                     }
                 }
                 .con-center{
-                    flex: 2;
+                    flex: 1.9;
                     padding: 0 3%;
                     .mgz{
                         .title{
-                            padding-top: 3%;
-                            @include flex(true, true);
-                            border-bottom: 1px solid #e2e2e2;
-                            h3{font-size: 15px;}
-                            span{font-size: $fs11;}
+                            @include title(true, true);
                         }
                         ul{
-                            padding: 2% 0 4%;
+                            padding: 3% 0 4%;
                             display: grid;
                             grid-template: repeat(2,1fr)/repeat(2,1fr);
                             grid-gap: 5%;                       
                             li{
-                                width: 92.5%;
+                                width: 191px;
                                 margin: 0 auto;
                                 border: 1px solid #d2d2d2;
                                 .text-box{
-                                    padding: 4% 7%;
+                                    padding: 5% 7%;
                                 }
                             }
                         }
                     }
                     .char{
                         padding: 3% 0;
+                        margin-top: 4%;
                         .title{
-                            h3{font-size: 15px;}
+                            @include title(false, false);
+                        }
+                        .char-box{
+                            width: 400px;
+                            height: 224px;
+                            margin: 2% auto 0;
+                            background: url(../img/cha_info/cha_bg.gif) center;
+                            @include norep();
+                            position: relative;
+                            .all-btn{
+                                position: absolute;
+                                top: 62.5%;
+                                left: 1px;
+                            }
+                            .char-wrap{
+                                position: relative;
+                                @include overh();
+                                width: 350px;
+                                height: 50px;
+                                margin: 10px auto;
+                                .char-thum-b{
+                                    @include flex(false, false);
+                                    img{cursor: pointer;}
+                                }
+                                .focus{
+                                    width: 50px;
+                                    height: 41px;
+                                    background: url(../img/cha_on/cha_hover.gif) center center;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    >img{
+                                        position: absolute;
+                                        z-index: 999;
+                                    }
+                                    .char-thum-c{
+                                        width: $wh100;
+                                        height: $wh100;
+                                        @include flex(false, false);
+                                        @include overh();
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                    }
+                                    img{cursor: pointer;}
+                                }
+                            }
+                            .char-arrow{
+                                img{cursor: pointer;}
+                                .prev-arrow, .next-arrow{
+                                    position: absolute;
+                                    bottom: 24px;
+                                }
+                                .prev-arrow{left: 9px;}
+                                .next-arrow{right: 9px;}
+                            }
                         }
                     }
                 }
                 .con-right{
-                    flex: 1;
+                    flex: 1.1;
+                    .news{
+                        .title{
+                            @include title(true, true);
+                        }
+                        .news-list{
+                            margin-top: 5%;
+                            letter-spacing: 0.5px;
+                            line-height: 1.7;
+                        }
+                        .update{
+                            margin-top: 4%;
+                            padding: 4%;
+                            background: #f9f9f9;
+                            border: 1px solid #d2d2d2;
+                            font-size: 12.5px;
+                            line-height: 1.7;
+                            span{
+                                display: block;
+                            }
+                        }
+                    }
+                    .today{
+                        margin-top: 10%;
+                        .title{
+                            @include title(true, true);
+                        }
+                        .today-list{
+                            @include list(false);
+                            .attk{background: url(../img/today/ico_today.gif);}
+                            li{
+                                @include norep();
+                            }
+                        }
+                    }
                 }
             }
         }
