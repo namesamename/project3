@@ -1,5 +1,6 @@
 *{box-sizing: border-box;}
 
+
 /* 변수 */
 $white: #fff;
 $black: #17191d;
@@ -54,7 +55,7 @@ $wh100: 100%;
 .container{max-width: 980px; height: inherit; margin: 0 auto; position: relative; @include overh();}
 a{color: inherit;}
 img{vertical-align: bottom;}
-.bold{font-family: 'NEXON Lv2 Gothic Bold';}
+.bold{font-weight: 700;}
 
 
 
@@ -80,11 +81,12 @@ header{
                 background: $black url(../img/btn/set_gnb.png) 0 0;
                 @include norep();
                 cursor: pointer;
-                margin-right: 10px;
+                margin: 3px 10px 0 0;
             }
             a{
                 display: block;
-                font-size: $fs18;
+                font-size: 17px;
+                font-weight: 400;
             }
             &:hover .icon{
                 background-color: $blue;
@@ -110,9 +112,28 @@ header{
                 height: 22px;
                 background: #191919 url(../img/btn/set_gnb_icon.png) 0 0;
                 @include norep();
+                position: relative;
+                transition: all .3s;
+                .pcroom{
+                width: 37px;
+                height: 18px;
+                border-radius: 17px;
+                background: #1b1f24;
+                color: $white;
+                font-size: $fs11;
+                font-weight: 200;
+                text-align: center;
+                position: absolute;
+                top: 22px;
+                left: -5.5px;
+                visibility: hidden;
+                }
+                &:hover .pcroom{
+                    visibility: visible;
+                }
             }
             .gnb-join{
-                font-size: $fs16;
+                font-size: 14px;
                 margin: 0 10px;
                 &:hover a{
                     color: $blue;
@@ -123,7 +144,7 @@ header{
                 padding: 7px 18px;
                 border: 2px solid $black;
                 border-radius: 20px;
-                font-size: $fs16;
+                font-size: 15px;
                 &:hover{
                     color: $white;
                     background: $blue;
@@ -135,104 +156,32 @@ header{
     }
 
     /* nav */
-    nav{
+    nav {
+        z-index: 100;
         width: $wh100;
-        height: 61px;
+        height: 80px;
         position: relative;
-        background: url(../img/nav/nav_bg.png) center center;
-        @include norep();
-        .pc-wrap{
-            width: $wh100;
-            height: $wh100;
-            @include flex(false, false);
+        background: #222;
+        @include flex(true, true);
+        .nav-left {
             justify-content: space-around;
-            li{
-                width: calc((79%-211px)/9);
-                height: $wh100;
-                position: relative;
-                a{
-                    display: block;
-                    width: 82%;
-                    height: $wh100;
-                    background: url(../img/nav/nav_menu.png);
-                    @include norep();
-                }
-                $bpx:(
-                    1: 0,
-                    2: -70px,
-                    3: -422px,
-                    5: -204px,
-                    6: -274px,
-                    7: -345px
-                );
-                $ml:(
-                    3: 10px,
-                    6: 10px,
-                    7: 10px
-                );
-                @each $i, $px in $bpx{
-                    &:nth-child(#{$i})>a{background-position-x: $px;}
-                }
-                @each $i, $px in $ml{
-                    &:nth-child(#{$i})>a{margin-left: $px;}
-                }
-            }
             .logo{
-                width: 211px;
-                h2{height: $wh100;}
+
+            }
+            li {
                 a{
                     display: block;
-                    width: $wh100;
-                    height: $wh100;
-                    padding-top: 7px;
-                    background: none;
+                    width: 130px;
+                    font-size: 20px;
+                    color: #c0c7d3;
                 }
             }
         }
-
-        /* mobile header */
-        .mob-wrap{
-            width: $wh100;
-            height: $wh100;
-            @include flex(true, true);
-            a{display: block;}
-            .fas{
-                font-size: 25px;
-                line-height: 33px;
-                color: $red;
-            }
-            .mob-menu{
-                a{
-                    width: 33px;
-                    height: 33px;
-                }
-                .fas{padding: 0 4px;}
-            }
-            .mob-logo{
-                width: 150px;
-                height: $wh100;
-                h2{height: $wh100;}
-                a{
-                    width: $wh100;
-                    height: 71%;
-                    img{
-                        width: $wh100;
-                        height: $wh100;
-                        margin-top: 8px;
-                    }
-                }
-            }
-            .mob-home{
-                a{
-                    width: 33px;
-                    height: 33px;
-                }
-                .fas{padding: 0 1px;}
-            }
+        .nav-right{
+            float: right;
         }
     }
 }
-
 
 
 /* main */
