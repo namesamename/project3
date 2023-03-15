@@ -78,7 +78,7 @@ header{
             .icon{
                 width: 18px;
                 height: 18px;
-                background: $black url(../img/btn/set_gnb.png) 0 0;
+                background: $black url(../img/icon/set_gnb.png) 0 0;
                 @include norep();
                 cursor: pointer;
                 margin: 3px 10px 0 0;
@@ -110,10 +110,9 @@ header{
             .icon{
                 width: 22px;
                 height: 22px;
-                background: #191919 url(../img/btn/set_gnb_icon.png) 0 0;
+                background: #191919 url(../img/icon/set_gnb_icon.png) 0 0;
                 @include norep();
                 position: relative;
-                transition: all .3s;
                 .pcroom{
                 width: 37px;
                 height: 18px;
@@ -123,13 +122,17 @@ header{
                 font-size: $fs11;
                 font-weight: 200;
                 text-align: center;
+                padding-left: 1.5px;
                 position: absolute;
                 top: 22px;
                 left: -5.5px;
                 visibility: hidden;
+                opacity: 0;
+                transition: all .3s linear;
                 }
                 &:hover .pcroom{
                     visibility: visible;
+                    opacity: 100;
                 }
             }
             .gnb-join{
@@ -156,29 +159,99 @@ header{
     }
 
     /* nav */
-    nav {
+    nav{
         z-index: 100;
         width: $wh100;
         height: 80px;
         position: relative;
         background: #222;
+        text-align: center;
         @include flex(true, true);
         .nav-left {
+            display: flex;
+            height: inherit;
             justify-content: space-around;
             .logo{
-
+                width: 195px;
+                display: inline-block;
+                a{
+                    img{
+                        position: absolute;
+                        left: 30px;
+                        top: 26px;
+                    }
+                }
             }
-            li {
+            li{
+                width: 130px;
+                height: inherit;
+                display: inline-block;
                 a{
                     display: block;
-                    width: 130px;
+                    line-height: 80px;
                     font-size: 20px;
                     color: #c0c7d3;
                 }
+                ul{
+                    display: none;
+                    width: inherit;
+                    padding-top: 22px;
+                    li{
+                        a{
+                            display: block;
+                            font-size: 16px;
+                            line-height: 32px;
+                            letter-spacing: -0.5px;
+                            color: #777;
+                        }
+                    }
+                }
+                >ul>li>a{
+                    &:hover{color: #eb4242;}
+                }
+            }
+            &:hover li ul{display: block;}
+            &.bg{
+                max-width: 100%;
+                height: 400px;
+                background: #222;
+                margin-top: 1px;
             }
         }
         .nav-right{
-            float: right;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            .login-btn{
+                padding-right: 30px;
+                a{
+                    display: block;
+                    font-size: 16px;
+                    color: #979eaa;
+                    span{
+                        display: inline-block;
+                        width: 18px;
+                        height: 22px;
+                        margin-right: 8px;
+                        vertical-align: middle;
+                        background: url(../img/icon/ico_gnb.png);
+                        @include norep();
+                    }
+                }
+            }
+            .start-btn{
+                a{
+                    display: block;
+                    width: 230px;
+                    height: 80px;
+                    background: url(../img/start/game_start.png);
+                    @include norep();
+                    text-indent: -9999px;
+                }
+                &:hover a{
+                    background-position-y: 100%;
+                }
+            }
         }
     }
 }
@@ -186,6 +259,7 @@ header{
 
 /* main */
 main{
+    height: 5000px;
     /* banner */
     #banner{
         background: url(../img/bg.jpg);

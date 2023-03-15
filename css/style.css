@@ -61,7 +61,7 @@ header .gnb .gnb-menu {
 header .gnb .gnb-menu .icon {
   width: 18px;
   height: 18px;
-  background: #17191d url(../img/btn/set_gnb.png) 0 0;
+  background: #17191d url(../img/icon/set_gnb.png) 0 0;
   background-repeat: no-repeat;
   cursor: pointer;
   margin: 3px 10px 0 0;
@@ -92,10 +92,9 @@ header .gnb .gnb-right {
 header .gnb .gnb-right .icon {
   width: 22px;
   height: 22px;
-  background: #191919 url(../img/btn/set_gnb_icon.png) 0 0;
+  background: #191919 url(../img/icon/set_gnb_icon.png) 0 0;
   background-repeat: no-repeat;
   position: relative;
-  transition: all 0.3s;
 }
 header .gnb .gnb-right .icon .pcroom {
   width: 37px;
@@ -106,13 +105,17 @@ header .gnb .gnb-right .icon .pcroom {
   font-size: 11px;
   font-weight: 200;
   text-align: center;
+  padding-left: 1.5px;
   position: absolute;
   top: 22px;
   left: -5.5px;
   visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s linear;
 }
 header .gnb .gnb-right .icon:hover .pcroom {
   visibility: visible;
+  opacity: 100;
 }
 header .gnb .gnb-right .gnb-join {
   font-size: 14px;
@@ -140,25 +143,97 @@ header nav {
   height: 80px;
   position: relative;
   background: #222;
+  text-align: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 header nav .nav-left {
+  display: flex;
+  height: inherit;
   justify-content: space-around;
+}
+header nav .nav-left .logo {
+  width: 195px;
+  display: inline-block;
+}
+header nav .nav-left .logo a img {
+  position: absolute;
+  left: 30px;
+  top: 26px;
+}
+header nav .nav-left li {
+  width: 130px;
+  height: inherit;
+  display: inline-block;
 }
 header nav .nav-left li a {
   display: block;
-  width: 130px;
+  line-height: 80px;
   font-size: 20px;
   color: #c0c7d3;
 }
+header nav .nav-left li ul {
+  display: none;
+  width: inherit;
+  padding-top: 22px;
+}
+header nav .nav-left li ul li a {
+  display: block;
+  font-size: 16px;
+  line-height: 32px;
+  letter-spacing: -0.5px;
+  color: #777;
+}
+header nav .nav-left li > ul > li > a:hover {
+  color: #eb4242;
+}
+header nav .nav-left:hover li ul {
+  display: block;
+}
+header nav .nav-left.bg {
+  max-width: 100%;
+  height: 400px;
+  background: #222;
+  margin-top: 1px;
+}
 header nav .nav-right {
-  float: right;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+header nav .nav-right .login-btn {
+  padding-right: 30px;
+}
+header nav .nav-right .login-btn a {
+  display: block;
+  font-size: 16px;
+  color: #979eaa;
+}
+header nav .nav-right .login-btn a span {
+  display: inline-block;
+  width: 18px;
+  height: 22px;
+  margin-right: 8px;
+  vertical-align: middle;
+  background: url(../img/icon/ico_gnb.png);
+  background-repeat: no-repeat;
+}
+header nav .nav-right .start-btn a {
+  display: block;
+  width: 230px;
+  height: 80px;
+  background: url(../img/start/game_start.png);
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+}
+header nav .nav-right .start-btn:hover a {
+  background-position-y: 100%;
 }
 
 /* main */
 main {
+  height: 5000px;
   /* banner */
   /* content */
 }
