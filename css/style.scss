@@ -57,7 +57,6 @@ $wh100: 100%;
 .container{max-width: 980px; height: inherit; margin: 0 auto; position: relative; @include overh();}
 a{color: inherit;}
 img{vertical-align: bottom;}
-.bold{font-weight: 700;}
 
 
 
@@ -260,7 +259,7 @@ header{
 
 /* main */
 main{
-    height: 5000px;
+    height: 2000px;
 
     /* banner */
     #banner{
@@ -369,6 +368,12 @@ main{
                     @include norep();
                 }
                 .page{
+                    width: 80px;
+                    height: 15px;
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: #fff;
+                    text-align: center;
                 }
                 .next{
                     width: 15px;
@@ -442,6 +447,7 @@ main{
         }
     }
 
+    /* content */
     #content{
         .content-wrap{
             width: 1280px;
@@ -501,7 +507,7 @@ main{
 
                 }
                 .mgz{
-                    width: 42%;
+                    width: 41.5%;
                     margin: 0 20px;
                     position: relative;
                     >a{
@@ -511,6 +517,7 @@ main{
                         position: absolute;
                         top: 27px;
                         right: 30px;
+                        z-index: 1;
                         background: url(../img/icon/arrow_icon.png) right 13px;
                         @include norep();
                         opacity: 0.5;
@@ -519,28 +526,156 @@ main{
                         position: absolute;
                         top: 33%;
                         left: 8%;
+                        z-index: 1;
                         li{
                             a{
                                 font-size: 14px;
                                 font-weight: 300;
                                 line-height: 22px;
                                 color: #999;
-                            }
-                            &.mgz-m{
-                                a{color: #fff;}
+                                &.mgz-m{
+                                    color: #fff;
+                                }
                             }
                         }
                     }
                     .mgz-img{
+                        position: relative;
                         li{
+                            position: absolute;
+                            top: 0;
+                            left: 0;
                             display: none;
                             &.img-m{display: block;}
+                            .mgz-box{
+                                width: $wh100;
+                                height: 100px;
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                z-index: 1;
+                                a{
+                                    display: block;
+                                    width: $wh100;
+                                    height: $wh100;
+                                    padding: 29px 45px;
+                                    color: #777;
+                                    p{
+                                        &.box-title{
+                                            color: #fff;
+                                            span{
+                                                &.yellow{
+                                                    color: #ebaa00;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    span{
+
+                                    }
+                                }
+                            }
                         }
                     }
                 }
                 .tdnbnr{
                     width: 26%;
+                    .today{
+                        height: 61%;
+                        border: 1px solid #e3e3e3;
+                        position: relative;
+                        h3{
+                            font-size: 22px;
+                            font-weight: 500;
+                            line-height: 30px;
+                            padding: 20px 0 10px 30px;
+                            color: #333;
+                        }
+                        >a{
+                            font-size: 1px;
+                            color: #bcbcbc;
+                            padding: 7px;
+                            position: absolute;
+                            top: 27px;
+                            right: 30px;
+                            background: url(../img/icon/arrow_icon.png) right 13px;
+                            @include norep();
+                        }
+                        .td-l{
+                            li{
+                                @include flex(true, false);
+                                font-size: 15px;
+                                font-weight: 300;
+                                line-height: 28px;
+                                color: #555;
+                                a{
+                                    padding-left: 30px;
+                                    span{
+                                        display: inline-block;
+                                        &.cate{color: #eb4242;}
+                                    }
+                                }
+                                >span{
+                                    font-size: 14px;
+                                    padding-right: 30px;
+                                    color: #999;
+                                }
+                            }
+                        }
+                    }
+                    .bnr-s{
+                        height: 33%;
+                        margin-top: 20px;
+                        overflow: hidden;
+                        position: relative;
+                        .bnr-wrap{
+                            li{
+                                display: none;
+                                &.active{display: block;}
+                                a{
+                                    img{
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                    }
+                                }
+                            }
+                        }
+                        .bnr-ctrl{
+                            width: 30px;
+                            height: 11px;
+                            position: absolute;
+                            bottom: 15px;
+                            left: 33px;
+                            text-indent: -9999px;
+                            z-index: 1;
+                            @include flex(true, true);
+                            a{
+                                display: inline-block;
+                                width: 11px;
+                                height: 11px;
+                                background: url(../img/icon/bnr_ctrl.png);
+                                @include norep();
+                                opacity: 0.5;
+                                &.bnrsbar{
+                                    width: 1px;
+                                        height: 11px;
+                                        background: #999;
+                                        opacity: 1;
+                                }
+                                &.bnrsnext{
+                                    background-position: -18px 0;
+                                }
+                                &:hover{opacity: 1;}
+                            }
+                        }
+                    }
                 }
+            }
+            .con-band{
+                width: $wh100;
+                height: 120px;
+                margin: 40px 0;
             }
         }
     }
@@ -549,46 +684,91 @@ main{
 
 
 /* footer */
-.footer-wrap{
+#footer{
     width: $wh100;
-    margin-top: 30px;
+    padding-bottom: 70px;
+    border-top: 1px solid #888; 
     @include overh();
-    padding: 10px;
-    .link{
-        font-size: 13px;
-        color: #666;
-        letter-spacing: .5px;
-        @include overh();
-        @include flex(false, false);
-        li{
-            @include overh();
-            &:not(:last-child){padding-right: 15px;}
-        }
-        a{
-            position: relative;
-            &::after{content: ""; display: inline-block; width: 1px; height: 12px; background: #d1d1d1; position: absolute; top: 1px; right: -8px;}
-        }
-    }
-    .info{
-        font-size: $fs11;
-        color: #888;
-        margin-top: 10px;
-        span{
-            display: inline-block;
-            margin-right: 10px;
-            a{text-decoration: underline;}
+    .t-wrap{    
+        border-bottom: 1px solid #e3e3e3;
+        .link{
+            width: 1280px;
+            margin: 0 auto;
+            li{
+                display: inline-block;
+                padding: 20px 0;
+                a{
+                    display: block;
+                    font-size: 13px;
+                    color: #777;
+                    &.strong{color: #333;}
+                    span{
+                        display: inline-block;
+                        margin: 0 15px;
+                    }
+                }
+            }
         }
     }
-    .cen{
-        font-size: $fs11;
-        color: #888;
-        margin-top: 10px;
-    }
-    .logo{
-        margin-top: 20px;
-        a{
-            display: inline-block;
-            margin-right: 15px;
+    .b-wrap{
+        width: 1280px;
+        margin: 0 auto;
+        font-size: 12px;
+        color: #777;
+        position: relative;
+        .bt-wrap{
+            @include flex(true, false);
+            .info{
+                padding: 18px 0;
+                span{
+                    display: inline-block;
+                    margin-right: 1px;
+                    position: relative;
+                    &.imp{
+                        margin-right: 6px;
+                        &::after{
+                            content: '';
+                            display: inline-block;
+                            width: 1px;
+                            height: 13px;
+                            position: absolute;
+                            top: 3px;
+                            right: -5px;
+                            background: #888;
+                        }
+                    }
+                }
+            }
+            .sns{
+                margin-top: 20px;
+                li{
+                    display: inline-block;
+                    width: 44px;
+                    height: 44px;
+                    margin-right: 8px;
+                    background: url(../img/footer/f_sns.png);
+                    @include norep();
+                    text-indent: -9999px;
+                    a{
+                        display: block;
+                        width: $wh100;                    
+                        height: $wh100;
+                    }
+                    &.tw{
+                        background-position: 50% 0;
+                    }
+                    &.fb{
+                        background-position: 100% 0;
+                    }
+                }
+            }
+        }
+        .logo{
+            margin-top: 20px;
+            a{
+                display: inline-block;
+                margin-right: 30px;
+            }
         }
     }
 }
