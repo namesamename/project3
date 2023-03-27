@@ -188,12 +188,6 @@ header nav .nav-left li > ul > li > a:hover {
 header nav .nav-left:hover li ul {
   display: block;
 }
-header nav .nav-left.bg {
-  max-width: 100%;
-  height: 400px;
-  background: #222;
-  margin-top: 1px;
-}
 header nav .nav-right {
   display: flex;
   display: flex;
@@ -226,6 +220,14 @@ header nav .nav-right .start-btn a {
 }
 header nav .nav-right .start-btn:hover a {
   background-position-y: 100%;
+}
+header .bg {
+  display: none;
+  width: 100%;
+  height: 400px;
+  background: #222;
+  position: absolute;
+  z-index: 99;
 }
 
 /* main */
@@ -264,18 +266,21 @@ main #banner #slider .slide a {
   margin: 0 auto;
 }
 main #banner #slider .slide a .tag {
+  position: absolute;
+  top: 88px;
+  left: 0;
+  z-index: 2;
+}
+main #banner #slider .slide a .tag span {
   display: inline-block;
   margin: 0 2px;
   padding: 0 13px;
   color: #fff;
   font-size: 12px;
-  line-height: 25px;
+  line-height: 26px;
   text-align: center;
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 28px;
-  position: absolute;
-  top: 88px;
-  z-index: 2;
 }
 main #banner #slider .slide .shadow {
   width: 100%;
@@ -354,6 +359,13 @@ main #banner .bnr-box .pager .page {
   line-height: 16px;
   color: #fff;
   text-align: center;
+  text-indent: 0;
+}
+main #banner .bnr-box .pager .page .n-page {
+  opacity: 0.5;
+}
+main #banner .bnr-box .pager .page span {
+  opacity: 0.3;
 }
 main #banner .bnr-box .pager .next {
   width: 15px;

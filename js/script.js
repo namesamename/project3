@@ -1,4 +1,14 @@
 
+/* nav */
+const $navLeft=document.querySelectorAll('.nav-left>li');
+const $bg=document.querySelector('.bg');
+
+/* $navLeft.addEventListener('mouseover',function(){
+    $bg.style.display='block';
+}); */
+
+
+
 /* banner */
 const $slide=document.querySelectorAll('#slider li');
 const $prev=document.getElementById('prev');
@@ -8,15 +18,15 @@ const $progBtn=document.querySelectorAll('.progress span');
 const $pager=document.querySelector('.pager');
 const $pagerPrev=document.querySelector('.prev');
 const $pagerNext=document.querySelector('.next');
-const $pageIdx=document.querySelector('.page span');
+const $page=document.querySelector('.n-page');
 const $pagerSP=document.querySelector('.stop-play');
 
 let $slideCount=$slide.length;
 let $progCount=$progBtn.length;
 let $currentIdx=0;
 let $progIdx=0;
+let $pageIdx=0;
 let $timer;
-let $count=2;
 
 
 // 슬라이드 이동
@@ -24,8 +34,10 @@ function goToSlider(idx){
     $currentIdx=idx;
     for(let i=0; i<$slideCount; i++){
         $slide[i].classList.remove('act');
+
     }
     $slide[idx].classList.add('act');
+    $page.innerText=$currentIdx+1;
 }
 goToSlider(0);
 
@@ -40,7 +52,7 @@ function goToProg(idx){
 goToProg(0);
 
 for(let x=0; x<$progCount; x++){
-    $progBtn[x].addEventListener('click', function(e){
+    $progBtn[x].addEventListener('click',function(e){
         let $pageNum=e.target.innerText-1;
         goToSlider($pageNum);
         goToProg($pageNum);
@@ -58,21 +70,27 @@ function autoSlide(){
 autoSlide();
 
 // stop-play
+function autoStop(){
+    clearInterval($timer);
+    $pagerSP.style.backgroundPosition='50% -40px';
+}
+
+let sp=true;
 $pagerSP.addEventListener('click',function(){
-    for(let j=0; j<$count; j++){
-        let stoplay=(j%2);
-        if(stoplay==0){
-            j=0;
-            autoSlide();
-        }else if(stoplay==1){
-            clearInterval($timer);
-        }
+    if(sp){
+        autoStop();
+        sp=false;
+    }else{
+        autoSlide();
+        $pagerSP.style.backgroundPosition='50% -60px';
+        sp=true;
     }
 });
 
+
 // 양쪽 버튼 클릭 시 이동
 $prev.addEventListener('click',function(){
-    clearInterval($timer);
+    autoStop();
     if($currentIdx==0){
         goToSlider($slideCount-1);
         goToProg($slideCount-1);
@@ -82,7 +100,7 @@ $prev.addEventListener('click',function(){
     }
 });
 $pagerPrev.addEventListener('click',function(){
-    clearInterval($timer);
+    autoStop();
     if($currentIdx==0){
         goToSlider($slideCount-1);
         goToProg($slideCount-1);
@@ -92,11 +110,8 @@ $pagerPrev.addEventListener('click',function(){
     }
 });
 $next.addEventListener('click',function(){
-    clearInterval($timer);
-    if($currentIdx==0){
-        goToSlider($currentIdx+1);
-        goToProg($currentIdx+1);
-    }else if($currentIdx==$slideCount-1){
+    autoStop();
+    if($currentIdx==$slideCount-1){
         goToSlider(0);
         goToProg(0);
     }else{
@@ -105,11 +120,8 @@ $next.addEventListener('click',function(){
     }
 });
 $pagerNext.addEventListener('click',function(){
-    clearInterval($timer);
-    if($currentIdx==0){
-        goToSlider($currentIdx+1);
-        goToProg($currentIdx+1);
-    }else if($currentIdx==$slideCount-1){
+    autoStop();
+    if($currentIdx==$slideCount-1){
         goToSlider(0);
         goToProg(0);
     }else{
@@ -117,12 +129,6 @@ $pagerNext.addEventListener('click',function(){
         goToProg($progIdx+1);
     }
 });
-
-// bnr-box
-function pageNum(){
-    $pageIdx.innerHTML=$currentIdx+"/ 8"
-}
-pageNum();
 
 
 
