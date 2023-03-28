@@ -52,7 +52,7 @@ $wh100: 100%;
 
 
 
-#wrap{width: $wh100; @include overh();}
+#wrap{max-width: $wh100; min-width: 1280px; @include overh();}
 #content{width: $wh100; background: $white; @include overh();}
 .container{max-width: 980px; height: inherit; margin: 0 auto; position: relative; @include overh();}
 a{color: inherit;}
@@ -211,7 +211,6 @@ header{
                     &:hover{color: #eb4242;}
                 }
             }
-            &:hover li ul{display: block;}
         }
         .nav-right{
             display: flex;
@@ -247,22 +246,30 @@ header{
                 }
             }
         }
+        &.fixed{
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
     }
-    .bg{
+   .bg{
         display: none;
         width: $wh100;
-        height: 400px;
+        height: 320px;
         background: #222;
         position: absolute;
         z-index: 99;
+        &.fixed{
+            position: fixed;
+            top: 80px;
+            left: 0;
+        }
     }
 }
 
 
 /* main */
 main{
-    height: 2000px;
-
     /* banner */
     #banner{
         position: relative;
@@ -578,9 +585,6 @@ main{
                                             }
                                         }
                                     }
-                                    span{
-
-                                    }
                                 }
                             }
                         }
@@ -687,6 +691,143 @@ main{
             }
         }
     }
+    #eclipse{
+        width: $wh100;
+        height: 730px;
+        background: url(../img/eclipse_b/bg_elp.png) 50% 0;
+        @include norep();
+        @include overh();
+        position: relative;
+        .elp-b{
+            width: $wh100;
+            height: inherit;
+            position: absolute;
+            top: 0;
+            left: 0;
+            .cha-btn{
+                display: block;
+                width: 180px;
+                height: 50px;
+                padding-left: 25px;
+                border: 2px solid #eb4342;
+                border-radius: 50px;
+                font-size: 16px;
+                line-height: 46px;
+                color: #eb4342;
+                background: url(../img/eclipse_b/elp_arrow.png) right 23px top 17px;
+                position: absolute;
+                bottom: 37%;
+                left: 18%;
+                transform: translateX(-50%);
+                z-index: 1;
+                @include norep();
+            }
+            .elp-b-slider{
+                position: relative;
+                .elp-b-slide{
+                    display: none;
+                    &.show{display: block;}
+                    img{
+                        width: 1766px;
+                        height: 680px;
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                    .slide-txt{
+                        position: absolute;
+                        top: 88px;
+                        left: 25%;
+                        transform: translateX(-50%);
+                        .txt-title{
+                            font-size: 102px;
+                            line-height: 108px;
+                            letter-spacing: -5px;
+                            span{
+                                display: block;
+                                color: #fff;
+                            }
+                            .name{color: #eb4342;}
+                        }
+                        .txt-sub{
+                            margin: 15px 0 0 8px;
+                            letter-spacing: -0.5px;
+                            span{
+                                display: block;
+                                font-size: 20px;
+                                line-height: 28px;
+                                color: #777;
+                            }
+                            .party{
+                                font-size: 24px;
+                                line-height: 30px;
+                                color: #ebaa00;
+                                margin-bottom: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .elp-s{
+            width: 1280px;
+            height: 180px;
+            @include overh();
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            .elp-s-slider{
+                position: relative;
+                @include flex(false, false);
+                .txt-box{
+                    width: 160px;
+                    height: 180px;
+                    background: #14141b;
+                    font-size: 15px;
+                    font-weight: 500;
+                    color: #555;
+                    text-align: center;
+                    position: relative;
+                    .box-arrow{
+                        height: $wh100;
+                        @include flex(false, true);
+                        div{
+                            display: inline-block;
+                            width: 11px;
+                            height: 16px;
+                            position: absolute;
+                            top: 50%;
+                            background: url(../img/icon/elp-arrow.png);
+                            @include norep();
+                            opacity: 0.7;
+                        }
+                        .elp-prev{
+                            left: 18%;
+                            @include cuspnt();
+                        }
+                        .elp-num{
+                            width: 48px;
+                            background: none;
+                            top: 48%;
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+                        .elp-next{
+                            right: 18%;
+                            background-position-y: -50px;
+                            @include cuspnt();
+                        }
+                    }
+                }
+                .elp-s-slide{
+                    width: 1120px;
+                    @include overh();
+                }
+            }
+        }
+    }
 }
 
 
@@ -694,8 +835,9 @@ main{
 /* footer */
 #footer{
     width: $wh100;
+    margin-top: 50px;
     padding-bottom: 70px;
-    border-top: 1px solid #888; 
+    border-top: 1px solid #888;
     @include overh();
     .t-wrap{    
         border-bottom: 1px solid #e3e3e3;

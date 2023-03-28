@@ -6,7 +6,8 @@
 /* 변수 */
 /* mixin */
 #wrap {
-  width: 100%;
+  max-width: 100%;
+  min-width: 1280px;
   overflow: hidden;
 }
 
@@ -185,9 +186,6 @@ header nav .nav-left li ul li a {
 header nav .nav-left li > ul > li > a:hover {
   color: #eb4242;
 }
-header nav .nav-left:hover li ul {
-  display: block;
-}
 header nav .nav-right {
   display: flex;
   display: flex;
@@ -221,18 +219,27 @@ header nav .nav-right .start-btn a {
 header nav .nav-right .start-btn:hover a {
   background-position-y: 100%;
 }
+header nav.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
 header .bg {
   display: none;
   width: 100%;
-  height: 400px;
+  height: 320px;
   background: #222;
   position: absolute;
   z-index: 99;
 }
+header .bg.fixed {
+  position: fixed;
+  top: 80px;
+  left: 0;
+}
 
 /* main */
 main {
-  height: 2000px;
   /* banner */
   /* content */
 }
@@ -658,10 +665,153 @@ main #content .content-wrap .con-band {
   height: 120px;
   margin: 40px 0;
 }
+main #eclipse {
+  width: 100%;
+  height: 730px;
+  background: url(../img/eclipse_b/bg_elp.png) 50% 0;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  position: relative;
+}
+main #eclipse .elp-b {
+  width: 100%;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+main #eclipse .elp-b .cha-btn {
+  display: block;
+  width: 180px;
+  height: 50px;
+  padding-left: 25px;
+  border: 2px solid #eb4342;
+  border-radius: 50px;
+  font-size: 16px;
+  line-height: 46px;
+  color: #eb4342;
+  background: url(../img/eclipse_b/elp_arrow.png) right 23px top 17px;
+  position: absolute;
+  bottom: 37%;
+  left: 18%;
+  transform: translateX(-50%);
+  z-index: 1;
+  background-repeat: no-repeat;
+}
+main #eclipse .elp-b .elp-b-slider {
+  position: relative;
+}
+main #eclipse .elp-b .elp-b-slider .elp-b-slide {
+  display: none;
+}
+main #eclipse .elp-b .elp-b-slider .elp-b-slide.show {
+  display: block;
+}
+main #eclipse .elp-b .elp-b-slider .elp-b-slide img {
+  width: 1766px;
+  height: 680px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+main #eclipse .elp-b .elp-b-slider .elp-b-slide .slide-txt {
+  position: absolute;
+  top: 88px;
+  left: 25%;
+  transform: translateX(-50%);
+}
+main #eclipse .elp-b .elp-b-slider .elp-b-slide .slide-txt .txt-title {
+  font-size: 102px;
+  line-height: 108px;
+  letter-spacing: -5px;
+}
+main #eclipse .elp-b .elp-b-slider .elp-b-slide .slide-txt .txt-title span {
+  display: block;
+  color: #fff;
+}
+main #eclipse .elp-b .elp-b-slider .elp-b-slide .slide-txt .txt-title .name {
+  color: #eb4342;
+}
+main #eclipse .elp-b .elp-b-slider .elp-b-slide .slide-txt .txt-sub {
+  margin: 15px 0 0 8px;
+  letter-spacing: -0.5px;
+}
+main #eclipse .elp-b .elp-b-slider .elp-b-slide .slide-txt .txt-sub span {
+  display: block;
+  font-size: 20px;
+  line-height: 28px;
+  color: #777;
+}
+main #eclipse .elp-b .elp-b-slider .elp-b-slide .slide-txt .txt-sub .party {
+  font-size: 24px;
+  line-height: 30px;
+  color: #ebaa00;
+  margin-bottom: 5px;
+}
+main #eclipse .elp-s {
+  width: 1280px;
+  height: 180px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+main #eclipse .elp-s .elp-s-slider {
+  position: relative;
+  display: flex;
+}
+main #eclipse .elp-s .elp-s-slider .txt-box {
+  width: 160px;
+  height: 180px;
+  background: #14141b;
+  font-size: 15px;
+  font-weight: 500;
+  color: #555;
+  text-align: center;
+  position: relative;
+}
+main #eclipse .elp-s .elp-s-slider .txt-box .box-arrow {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+main #eclipse .elp-s .elp-s-slider .txt-box .box-arrow div {
+  display: inline-block;
+  width: 11px;
+  height: 16px;
+  position: absolute;
+  top: 50%;
+  background: url(../img/icon/elp-arrow.png);
+  background-repeat: no-repeat;
+  opacity: 0.7;
+}
+main #eclipse .elp-s .elp-s-slider .txt-box .box-arrow .elp-prev {
+  left: 18%;
+  cursor: pointer;
+}
+main #eclipse .elp-s .elp-s-slider .txt-box .box-arrow .elp-num {
+  width: 48px;
+  background: none;
+  top: 48%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+main #eclipse .elp-s .elp-s-slider .txt-box .box-arrow .elp-next {
+  right: 18%;
+  background-position-y: -50px;
+  cursor: pointer;
+}
+main #eclipse .elp-s .elp-s-slider .elp-s-slide {
+  width: 1120px;
+  overflow: hidden;
+}
 
 /* footer */
 #footer {
   width: 100%;
+  margin-top: 50px;
   padding-bottom: 70px;
   border-top: 1px solid #888;
   overflow: hidden;
