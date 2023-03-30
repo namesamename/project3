@@ -693,7 +693,7 @@ main #eclipse .elp-b .cha-btn {
   background: url(../img/eclipse_b/elp_arrow.png) right 23px top 17px;
   position: absolute;
   bottom: 37%;
-  left: 18%;
+  left: 18.75%;
   transform: translateX(-50%);
   z-index: 1;
   background-repeat: no-repeat;
